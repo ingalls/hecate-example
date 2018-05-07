@@ -6,4 +6,4 @@ Populate an [ingalls/Hecate](https://github.com/ingalls/hecate) instance with sa
 
 Follow the instructions in [ingalls/Hecate](https://github.com/ingalls/hecate) for getting a hecate instance running.
 
-Once running, run populate.sh to populate the database.
+Once running, run `node index.js` to populate the database.

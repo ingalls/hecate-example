@@ -1,0 +1,15 @@
+{
+  "name": "hecate-example",
+  "version": "1.0.0",
+  "description": "Populate a hecate instance with sample data",
+  "main": "index.js",
+  "repository": "git@github.com:ingalls/hecate-example",
+  "author": "ingalls <ingalls@protonmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "pg": "^7.4.3",
+    "request": "^2.85.0",
+    "tape": "^4.9.0"
+  }
+}
