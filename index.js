@@ -143,6 +143,40 @@ test('Populate Hecate Instance', (t) => {
         });
     });
 
+    t.test('Create Style: building (ingalls)', (q) => {
+        request.post({
+            url: 'http://ingalls:yeaheh@localhost:8000/api/style',
+            json: true,
+            body: {
+                name: "Buildings",
+                style: {
+                    version: 8,
+                    layers: [{
+                        id: 'building-polys',
+                        type: 'fill',
+                        source: 'hecate-data',
+                        filter: ['==', '$type', 'Polygon'],
+                        paint: {
+                            'fill-opacity': 0.1,
+                            'fill-color': '#408000'
+                        }
+                    }]
+                }
+            }
+        }, (err, res) => {
+            q.error(err);
+            q.equals(res.statusCode, 200);
+
+            request.post({
+                url: 'http://ingalls:yeaheh@localhost:8000/api/style/1/public',
+            }, (err, res) => {
+                q.error(err);
+                q.equals(res.statusCode, 200);
+                q.end();
+            });
+        });
+    });
+
     t.end();
 });
 
