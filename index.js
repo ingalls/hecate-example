@@ -157,7 +157,7 @@ test('Populate Hecate Instance', (t) => {
                         source: 'hecate-data',
                         filter: ['==', '$type', 'Polygon'],
                         paint: {
-                            'fill-opacity': 0.1,
+                            'fill-opacity': 0.8,
                             'fill-color': '#408000'
                         }
                     }]
