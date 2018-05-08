@@ -54,7 +54,15 @@ test('Populate Hecate Instance', (t) => {
     });
 
     t.test('Create User: ingalls', (q) => {
-        request('http://localhost:8000/api/user/create?username=ingalls&password=yeaheh&email=ingalls@protonmail.com', (err, res) => {
+        request('http://localhost:8000/api/user/create?username=ingalls&password=yeaheh&email=ingalls@example.com', (err, res) => {
+            q.error(err);
+            q.equals(res.statusCode, 200);
+            q.end();
+        });
+    });
+
+    t.test('Create User: mark', (q) => {
+        request('http://localhost:8000/api/user/create?username=mark&password=ehyeah&email=mark@example.com', (err, res) => {
             q.error(err);
             q.equals(res.statusCode, 200);
             q.end();
@@ -169,6 +177,40 @@ test('Populate Hecate Instance', (t) => {
 
             request.post({
                 url: 'http://ingalls:yeaheh@localhost:8000/api/style/1/public',
+            }, (err, res) => {
+                q.error(err);
+                q.equals(res.statusCode, 200);
+                q.end();
+            });
+        });
+    });
+
+    t.test('Create Style: building (mark)', (q) => {
+        request.post({
+            url: 'http://mark:ehyeah@localhost:8000/api/style',
+            json: true,
+            body: {
+                name: "Rooftop Footprints",
+                style: {
+                    version: 8,
+                    layers: [{
+                        id: 'building-polys',
+                        type: 'fill',
+                        source: 'hecate-data',
+                        filter: ['==', '$type', 'Polygon'],
+                        paint: {
+                            'fill-opacity': 0.8,
+                            'fill-color': '#FF8000'
+                        }
+                    }]
+                }
+            }
+        }, (err, res) => {
+            q.error(err);
+            q.equals(res.statusCode, 200);
+
+            request.post({
+                url: 'http://mark:ehyeah@localhost:8000/api/style/2/public',
             }, (err, res) => {
                 q.error(err);
                 q.equals(res.statusCode, 200);
