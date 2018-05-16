@@ -57,6 +57,7 @@ test('Populate Hecate Instance', (t) => {
         request('http://localhost:8000/api/user/create?username=ingalls&password=yeaheh&email=ingalls@example.com', (err, res) => {
             q.error(err);
             q.equals(res.statusCode, 200);
+            q.equals(res.body, 'true');
             q.end();
         });
     });
@@ -65,6 +66,7 @@ test('Populate Hecate Instance', (t) => {
         request('http://localhost:8000/api/user/create?username=mark&password=ehyeah&email=mark@example.com', (err, res) => {
             q.error(err);
             q.equals(res.statusCode, 200);
+            q.equals(res.body, 'true');
             q.end();
         });
     });
