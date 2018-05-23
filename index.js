@@ -110,6 +110,11 @@ test('Populate Hecate Instance', (t) => {
                 "type": "FeatureCollection",
                 "message": "Import Seneca Rocks Buildings",
                 "features": [{
+                    "type": "Feature", //FEATURE 4
+                    "action": "create",
+                    "properties": { "building": true },
+                    "geometry": { "type": "Polygon", "coordinates": [ [ [ -79.37664985656737, 38.834342391794515 ], [ -79.37683761119843, 38.83417942312231 ], [ -79.37662839889525, 38.83400809667998 ], [ -79.3764191865921, 38.83417524443351 ], [ -79.37664985656737, 38.834342391794515 ] ] ] }
+                },{
                     "type": "Feature", //FEATURE 5
                     "action": "create",
                     "properties": { "building": true },
@@ -170,6 +175,16 @@ test('Populate Hecate Instance', (t) => {
                         "name": "Tokumms"
                     },
                     "geometry": { "type": "Polygon", "coordinates": [ [ [ -79.37664985656737, 38.834342391794515 ], [ -79.37683761119843, 38.83417942312231 ], [ -79.37662839889525, 38.83400809667998 ], [ -79.3764191865921, 38.83417524443351 ], [ -79.37664985656737, 38.834342391794515 ] ] ] }
+                }, {
+                    "id": 4,
+                    "type": "Feature",
+                    "version": 1,
+                    "action": "modify",
+                    "properties": {
+                        "building": true,
+                        "name": "Tokumms"
+                    },
+                    "geometry": { "type": "Polygon", "coordinates": [ [ [ -79.37664985656737, 38.834342391794515 ], [ -79.37683761119843, 38.83417942312231 ], [ -79.37662839889525, 38.83400809667998 ], [ -79.3764191865921, 38.83417524443351 ], [ -79.37664985656737, 38.834342391794515 ] ] ] }
                 }]
             }
         }, (err, res) => {
@@ -188,6 +203,16 @@ test('Populate Hecate Instance', (t) => {
                 "message": "Fix name of store",
                 "features": [{
                     "id": 5,
+                    "type": "Feature",
+                    "version": 2,
+                    "action": "modify",
+                    "properties": {
+                        "building": true,
+                        "name": "Yokum's General Store"
+                    },
+                    "geometry": { "type": "Polygon", "coordinates": [ [ [ -79.37664985656737, 38.834342391794515 ], [ -79.37683761119843, 38.83417942312231 ], [ -79.37662839889525, 38.83400809667998 ], [ -79.3764191865921, 38.83417524443351 ], [ -79.37664985656737, 38.834342391794515 ] ] ] }
+                }, {
+                    "id": 4,
                     "type": "Feature",
                     "version": 2,
                     "action": "modify",
@@ -223,6 +248,40 @@ test('Populate Hecate Instance', (t) => {
                         "name": "Yokum's General Store"
                     },
                     "geometry": { "type": "Polygon", "coordinates": [ [ [ -79.37664985656737, 38.834342391794515 ], [ -79.37683761119843, 38.83417942312231 ], [ -79.37662839889525, 38.83400809667998 ], [ -79.3764191865921, 38.83417524443351 ], [ -79.37664985656737, 38.834342391794515 ] ] ] }
+                }, {
+                    "id": 4,
+                    "type": "Feature",
+                    "version": 3,
+                    "action": "modify",
+                    "properties": {
+                        "building": true,
+                        "store": true,
+                        "name": "Yokum's General Store"
+                    },
+                    "geometry": { "type": "Polygon", "coordinates": [ [ [ -79.37664985656737, 38.834342391794515 ], [ -79.37683761119843, 38.83417942312231 ], [ -79.37662839889525, 38.83400809667998 ], [ -79.3764191865921, 38.83417524443351 ], [ -79.37664985656737, 38.834342391794515 ] ] ] }
+                }]
+            }
+        }, (err, res) => {
+            q.error(err);
+            q.equals(res.statusCode, 200);
+            q.end();
+        });
+    });
+
+    t.test('Delete Data: Duplicate Buildings (ingalls)', (q) => {
+        request.post({
+            url: 'http://mark:ehyeah@localhost:8000/api/data/features',
+            json: true,
+            body: {
+                "type": "FeatureCollection",
+                "message": "Add store tag",
+                "features": [{
+                    "id": 4,
+                    "type": "Feature",
+                    "version": 4,
+                    "action": "delete",
+                    "properties": null,
+                    "geometry": null
                 }]
             }
         }, (err, res) => {
