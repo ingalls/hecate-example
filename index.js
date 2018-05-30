@@ -79,6 +79,8 @@ test('Populate Hecate Instance', (t) => {
                 "type": "FeatureCollection",
                 "message": "Import Seneca Rocks Streets",
                 "features": [{
+                    "id": 15,
+                    "version": 19,
                     "type": "Feature", //FEATURE 1
                     "action": "create",
                     "properties": { "highway": "primary", "name": "Route 28" },
