@@ -4,18 +4,48 @@ const request = require('request');
 const fs = require('fs');
 const path = require('path');
 const { Client } = require('pg')
+const Hecate = require('@mapbox/hecatejs');
 
 const test = require('tape');
 
-test('Populate Hecate Instance', (t) => {
-    t.test('Ensure server is running', (q) => {
-        request('http://localhost:8000', (err, res) => {
-            q.error(err);
-            q.equals(res.statusCode, 200);
-            q.end();
-        });
+const user = require('./lib/user');
+
+if (require.main === module) {
+    const opts = require('minimist')(process.argv, {
+        boolean: ['help'],
+        string: ['users']
     });
 
+    return runner(opts);
+} else {
+    module.exports = runner;
+}
+
+function runner(opts) {
+    const hecate = new Hecate({
+        host: 'localhost',
+        port: 8000
+    });
+
+    test('Populate Hecate Instance', (t) => {
+        t.test('Ensure server is running', (q) => {
+            request('http://localhost:8000', (err, res) => {
+                q.error(err);
+                q.equals(res.statusCode, 200);
+                q.end();
+            });
+        });
+
+        t.test('Add Users', (t) => {
+            user(hecate, {
+                desired: opts.users
+            }, t.done);
+        });
+    });
+}
+
+/**
+test('Populate Hecate Instance', (t) => {
     t.test('Add Bounds Data', (q) => {
         const client = new Client({
               user: 'postgres',
@@ -407,4 +437,4 @@ test('Populate Hecate Instance', (t) => {
 
     t.end();
 });
-
+*/
