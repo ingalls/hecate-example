@@ -39,7 +39,7 @@ function runner(opts) {
         t.test('Add Users', (t) => {
             user(hecate, {
                 desired: opts.users
-            }, t.done);
+            }, t.end);
         });
     });
 }
