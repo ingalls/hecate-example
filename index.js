@@ -185,6 +185,37 @@ function runner(opts) {
                 });
             });
 
+            t.test('Create Data: Highway - Duplicates (ingalls)', (q) => {
+                request.post({
+                    url: 'http://ingalls:yeaheh@localhost:8000/api/data/features',
+                    json: true,
+                    body: {
+                        "type": "FeatureCollection",
+                        "message": "Import Seneca Rocks Streets",
+                        "features": [{
+                            "type": "Feature", //FEATURE 1
+                            "action": "create",
+                            "properties": { "highway": "primary", "name": "Route 28" },
+                            "geometry": { "type": "LineString", "coordinates": [ [ -79.37619924545288, 38.8345346107744 ], [ -79.37287330627441, 38.83762675779815 ], [ -79.37230467796326, 38.83820338656929 ], [ -79.37211155891418, 38.83878001066818 ] ] }
+                        },{
+                            "type": "Feature", //FEATURE 2
+                            "action": "create",
+                            "properties": { "highway": "primary", "name": "Allegheny Drive" },
+                            "geometry": { "type": "LineString", "coordinates": [ [ -79.37619924545288, 38.8345346107744 ], [ -79.37821626663208, 38.83474354385938 ], [ -79.38022255897522, 38.834944119043975 ], [ -79.38199281692505, 38.83490233259378 ] ] }
+                        }, {
+                            "type": "Feature", //FEATURE 3
+                            "action": "create",
+                            "properties": { "highway": "primary", "name": "Route 33" },
+                            "geometry": { "type": "LineString", "coordinates": [ [ -79.37752962112427, 38.8298794225814 ], [ -79.37637090682983, 38.8320691540529 ], [ -79.37600612640381, 38.83253717952298 ], [ -79.37619924545288, 38.8345346107744 ] ] }
+                        }]
+                    }
+                }, (err, res) => {
+                    q.error(err);
+                    q.equals(res.statusCode, 200);
+                    q.end();
+                });
+            });
+
             t.test('Modify Data: Buildings (mark)', (q) => {
                 request.post({
                     url: 'http://mark:ehyeah@localhost:8000/api/data/features',
