@@ -81,7 +81,7 @@ function runner(opts) {
             });
 
             t.test('Create User: ingalls', (q) => {
-                request('http://localhost:8000/api/user/create?username=ingalls&password=yeaheh&email=ingalls@example.com', (err, res) => {
+                request('http://localhost:8000/api/user/create?username=ingalls&password=yeahehyeah&email=ingalls@example.com', (err, res) => {
                     q.error(err);
                     q.equals(res.statusCode, 200);
                     q.equals(res.body, 'true');
@@ -90,7 +90,7 @@ function runner(opts) {
             });
 
             t.test('Create User: mark', (q) => {
-                request('http://localhost:8000/api/user/create?username=mark&password=ehyeah&email=mark@example.com', (err, res) => {
+                request('http://localhost:8000/api/user/create?username=mark&password=ehyeahyeah&email=mark@example.com', (err, res) => {
                     q.error(err);
                     q.equals(res.statusCode, 200);
                     q.equals(res.body, 'true');
