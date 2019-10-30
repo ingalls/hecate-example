@@ -131,7 +131,7 @@ function runner(opts) {
 
             t.test('Create Data: Buildings (ingalls)', (q) => {
                 request.post({
-                    url: 'http://ingalls:yeaheh@localhost:8000/api/data/features',
+                    url: 'http://ingalls:yeahehyeah@localhost:8000/api/data/features',
                     json: true,
                     body: {
                         "type": "FeatureCollection",
@@ -187,7 +187,7 @@ function runner(opts) {
 
             t.test('Create Data: Highway - Duplicates (ingalls)', (q) => {
                 request.post({
-                    url: 'http://ingalls:yeaheh@localhost:8000/api/data/features',
+                    url: 'http://ingalls:yeahehyeah@localhost:8000/api/data/features',
                     json: true,
                     body: {
                         "type": "FeatureCollection",
@@ -218,7 +218,7 @@ function runner(opts) {
 
             t.test('Modify Data: Buildings (mark)', (q) => {
                 request.post({
-                    url: 'http://mark:ehyeah@localhost:8000/api/data/features',
+                    url: 'http://mark:ehyeahyeah@localhost:8000/api/data/features',
                     json: true,
                     body: {
                         "type": "FeatureCollection",
@@ -254,7 +254,7 @@ function runner(opts) {
 
             t.test('Modify Data: Buildings (mark)', (q) => {
                 request.post({
-                    url: 'http://mark:ehyeah@localhost:8000/api/data/features',
+                    url: 'http://mark:ehyeahyeah@localhost:8000/api/data/features',
                     json: true,
                     body: {
                         "type": "FeatureCollection",
@@ -290,7 +290,7 @@ function runner(opts) {
 
             t.test('Modify Data: Buildings (mark)', (q) => {
                 request.post({
-                    url: 'http://mark:ehyeah@localhost:8000/api/data/features',
+                    url: 'http://mark:ehyeahyeah@localhost:8000/api/data/features',
                     json: true,
                     body: {
                         "type": "FeatureCollection",
@@ -328,7 +328,7 @@ function runner(opts) {
 
             t.test('Delete Data: Duplicate Buildings (ingalls)', (q) => {
                 request.post({
-                    url: 'http://mark:ehyeah@localhost:8000/api/data/features',
+                    url: 'http://mark:ehyeahyeah@localhost:8000/api/data/features',
                     json: true,
                     body: {
                         "type": "FeatureCollection",
@@ -351,7 +351,7 @@ function runner(opts) {
 
             t.test('Create Data: Parking Spaces Multi* (ingalls)', (q) => {
                 request.post({
-                    url: 'http://ingalls:yeaheh@localhost:8000/api/data/features',
+                    url: 'http://ingalls:yeahehyeah@localhost:8000/api/data/features',
                     json: true,
                     body: {
                         "type": "FeatureCollection",
@@ -411,7 +411,7 @@ function runner(opts) {
 
             t.test('Create Style: building (ingalls)', (q) => {
                 request.post({
-                    url: 'http://ingalls:yeaheh@localhost:8000/api/style',
+                    url: 'http://ingalls:yeahehyeah@localhost:8000/api/style',
                     json: true,
                     body: {
                         name: "Buildings",
@@ -434,7 +434,7 @@ function runner(opts) {
                     q.equals(res.statusCode, 200);
 
                     request.post({
-                        url: 'http://ingalls:yeaheh@localhost:8000/api/style/1/public',
+                        url: 'http://ingalls:yeahehyeah@localhost:8000/api/style/1/public',
                     }, (err, res) => {
                         q.error(err);
                         q.equals(res.statusCode, 200);
@@ -445,7 +445,7 @@ function runner(opts) {
 
             t.test('Create Style: building (mark)', (q) => {
                 request.post({
-                    url: 'http://mark:ehyeah@localhost:8000/api/style',
+                    url: 'http://mark:ehyeahyeah@localhost:8000/api/style',
                     json: true,
                     body: {
                         name: "Rooftop Footprints",
@@ -468,7 +468,7 @@ function runner(opts) {
                     q.equals(res.statusCode, 200);
 
                     request.post({
-                        url: 'http://mark:ehyeah@localhost:8000/api/style/2/public',
+                        url: 'http://mark:ehyeahyeah@localhost:8000/api/style/2/public',
                     }, (err, res) => {
                         q.error(err);
                         q.equals(res.statusCode, 200);
@@ -503,7 +503,7 @@ function runner(opts) {
             ]) {
                 t.test('Create Data: Lots of Deltas (ingalls)', (q) => {
                     request.post({
-                        url: 'http://ingalls:yeaheh@localhost:8000/api/data/features',
+                        url: 'http://ingalls:yeahehyeah@localhost:8000/api/data/features',
                         json: true,
                         body: {
                             "type": "FeatureCollection",
