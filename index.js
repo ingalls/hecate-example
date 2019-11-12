@@ -100,7 +100,7 @@ function runner(opts) {
 
             t.test('Create Data: Highways (ingalls)', (q) => {
                 request.post({
-                    url: 'http://ingalls:yeaheh@localhost:8000/api/data/features',
+                    url: 'http://ingalls:yeahehyeah@localhost:8000/api/data/features',
                     json: true,
                     body: {
                         "type": "FeatureCollection",
