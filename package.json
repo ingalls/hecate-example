@@ -10,7 +10,7 @@
   "dependencies": {
     "@mapbox/hecatejs": "^7.0.1",
     "d3-queue": "^3.0.7",
-    "minimist": "^1.2.0",
+    "minimist": "^1.2.2",
     "pg": "^7.4.3",
     "request": "^2.85.0",
     "tape": "^4.9.0"
