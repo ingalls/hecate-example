@@ -523,6 +523,28 @@ function runner(opts) {
                 });
             }
 
+            t.test('Create Data: Should not allow invalid geojson coordinates', (q) => {
+                let invalidCoords = [ 938.832710598893414, -199.38005089759827 ];
+                request.post({
+                    url: 'http://ingalls:yeaheh@localhost:8000/api/data/features',
+                    json: true,
+                    body: {
+                        "type": "FeatureCollection",
+                        "message": "Seneca Picnic Sites",
+                        "features": [{
+                            "type": "Feature",
+                            "action": "create",
+                            "properties": { "building": true },
+                            "geometry": { type: "Point", coordinates: invalidCoords }
+                        }]
+                    }
+                }, (err, res) => {
+                    q.notOk(err);
+                    q.notEqual(res.statusCode, 200);
+                    q.end();
+                });
+            });
+
             t.end();
         });
     });
